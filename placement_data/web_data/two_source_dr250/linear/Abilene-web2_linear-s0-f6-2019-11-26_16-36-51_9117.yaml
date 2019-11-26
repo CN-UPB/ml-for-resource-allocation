@@ -1,0 +1,285 @@
+input:
+  algorithm: bjointsp
+  fixed: None
+  network: Abilene.graphml
+  num_edges: 14
+  num_flows: 12
+  num_nodes: 11
+  num_sources: 2
+  num_vnfs: 3
+  objective: 0
+  prev_embedding: None
+  seed: 9117
+  service: web2_linear.yaml
+  sources: s0-f6.yaml
+metrics:
+  changed:
+  - name: vnf_web
+    node: pop0
+  - name: vnf_lb
+    node: pop0
+  - name: vnf_web
+    node: pop1
+  - name: vnf_user
+    node: pop0
+  - name: vnf_lb
+    node: pop1
+  - name: vnf_user
+    node: pop1
+  max_cpu_oversub: 0
+  max_dr_oversub: 0
+  max_endToEnd_delay: 40
+  max_mem_oversub: 0
+  num_changed: 6
+  num_instances: 6
+  obj_value: 6002022.135269791
+  path_delays:
+  - dest: vnf_web
+    dest_node: pop1
+    path_delay: 0
+    src: vnf_lb
+    src_node: pop1
+  - dest: vnf_lb
+    dest_node: pop0
+    path_delay: 0
+    src: vnf_user
+    src_node: pop0
+  - dest: vnf_lb
+    dest_node: pop1
+    path_delay: 0
+    src: vnf_user
+    src_node: pop1
+  - dest: vnf_web
+    dest_node: pop0
+    path_delay: 0
+    src: vnf_lb
+    src_node: pop0
+  runtime: 1.3290445804595947
+  total_delay: 40
+  total_path_delay: 0
+  total_vnf_delay: 40
+  vnf_delays:
+  - vnf: vnf_web
+    vnf_delay: 10
+  - vnf: vnf_user
+    vnf_delay: 0
+  - vnf: vnf_lb
+    vnf_delay: 10
+  - vnf: vnf_user
+    vnf_delay: 0
+  - vnf: vnf_lb
+    vnf_delay: 10
+  - vnf: vnf_web
+    vnf_delay: 10
+placement:
+  alloc_node_res:
+  - cpu: 0.42996181138256284
+    mem: 0
+    name: vnf_web
+    node: pop0
+  - cpu: 0
+    mem: 0
+    name: vnf_user
+    node: pop0
+  - cpu: 0.5611058235128736
+    mem: 0
+    name: vnf_lb
+    node: pop1
+  - cpu: 0
+    mem: 0
+    name: vnf_user
+    node: pop1
+  - cpu: 0.5611058235128736
+    mem: 0
+    name: vnf_lb
+    node: pop0
+  - cpu: 0.42996181138256284
+    mem: 0
+    name: vnf_web
+    node: pop1
+  cpu_oversub: []
+  dr_oversub: []
+  flows:
+  - arc: vnf_lb.0->vnf_web.0
+    dest_vnf: vnf_web
+    dst_node: pop1
+    flow_id: f6
+    src_node: pop1
+    src_vnf: vnf_lb
+  - arc: vnf_lb.0->vnf_web.0
+    dest_vnf: vnf_web
+    dst_node: pop1
+    flow_id: f2
+    src_node: pop1
+    src_vnf: vnf_lb
+  - arc: vnf_lb.0->vnf_web.0
+    dest_vnf: vnf_web
+    dst_node: pop1
+    flow_id: f5
+    src_node: pop1
+    src_vnf: vnf_lb
+  - arc: vnf_lb.0->vnf_web.0
+    dest_vnf: vnf_web
+    dst_node: pop1
+    flow_id: f3
+    src_node: pop1
+    src_vnf: vnf_lb
+  - arc: vnf_lb.0->vnf_web.0
+    dest_vnf: vnf_web
+    dst_node: pop1
+    flow_id: f4
+    src_node: pop1
+    src_vnf: vnf_lb
+  - arc: vnf_lb.0->vnf_web.0
+    dest_vnf: vnf_web
+    dst_node: pop1
+    flow_id: f1
+    src_node: pop1
+    src_vnf: vnf_lb
+  - arc: vnf_user.0->vnf_lb.0
+    dest_vnf: vnf_lb
+    dst_node: pop0
+    flow_id: f5
+    src_node: pop0
+    src_vnf: vnf_user
+  - arc: vnf_user.0->vnf_lb.0
+    dest_vnf: vnf_lb
+    dst_node: pop0
+    flow_id: f1
+    src_node: pop0
+    src_vnf: vnf_user
+  - arc: vnf_user.0->vnf_lb.0
+    dest_vnf: vnf_lb
+    dst_node: pop0
+    flow_id: f2
+    src_node: pop0
+    src_vnf: vnf_user
+  - arc: vnf_user.0->vnf_lb.0
+    dest_vnf: vnf_lb
+    dst_node: pop0
+    flow_id: f3
+    src_node: pop0
+    src_vnf: vnf_user
+  - arc: vnf_user.0->vnf_lb.0
+    dest_vnf: vnf_lb
+    dst_node: pop0
+    flow_id: f6
+    src_node: pop0
+    src_vnf: vnf_user
+  - arc: vnf_user.0->vnf_lb.0
+    dest_vnf: vnf_lb
+    dst_node: pop0
+    flow_id: f4
+    src_node: pop0
+    src_vnf: vnf_user
+  - arc: vnf_user.0->vnf_lb.0
+    dest_vnf: vnf_lb
+    dst_node: pop1
+    flow_id: f5
+    src_node: pop1
+    src_vnf: vnf_user
+  - arc: vnf_user.0->vnf_lb.0
+    dest_vnf: vnf_lb
+    dst_node: pop1
+    flow_id: f6
+    src_node: pop1
+    src_vnf: vnf_user
+  - arc: vnf_user.0->vnf_lb.0
+    dest_vnf: vnf_lb
+    dst_node: pop1
+    flow_id: f2
+    src_node: pop1
+    src_vnf: vnf_user
+  - arc: vnf_user.0->vnf_lb.0
+    dest_vnf: vnf_lb
+    dst_node: pop1
+    flow_id: f3
+    src_node: pop1
+    src_vnf: vnf_user
+  - arc: vnf_user.0->vnf_lb.0
+    dest_vnf: vnf_lb
+    dst_node: pop1
+    flow_id: f4
+    src_node: pop1
+    src_vnf: vnf_user
+  - arc: vnf_user.0->vnf_lb.0
+    dest_vnf: vnf_lb
+    dst_node: pop1
+    flow_id: f1
+    src_node: pop1
+    src_vnf: vnf_user
+  - arc: vnf_lb.0->vnf_web.0
+    dest_vnf: vnf_web
+    dst_node: pop0
+    flow_id: f5
+    src_node: pop0
+    src_vnf: vnf_lb
+  - arc: vnf_lb.0->vnf_web.0
+    dest_vnf: vnf_web
+    dst_node: pop0
+    flow_id: f3
+    src_node: pop0
+    src_vnf: vnf_lb
+  - arc: vnf_lb.0->vnf_web.0
+    dest_vnf: vnf_web
+    dst_node: pop0
+    flow_id: f6
+    src_node: pop0
+    src_vnf: vnf_lb
+  - arc: vnf_lb.0->vnf_web.0
+    dest_vnf: vnf_web
+    dst_node: pop0
+    flow_id: f2
+    src_node: pop0
+    src_vnf: vnf_lb
+  - arc: vnf_lb.0->vnf_web.0
+    dest_vnf: vnf_web
+    dst_node: pop0
+    flow_id: f1
+    src_node: pop0
+    src_vnf: vnf_lb
+  - arc: vnf_lb.0->vnf_web.0
+    dest_vnf: vnf_web
+    dst_node: pop0
+    flow_id: f4
+    src_node: pop0
+    src_vnf: vnf_lb
+  links: []
+  mem_oversub: []
+  vlinks:
+  - dest_node: pop1
+    dest_vnf: vnf_web
+    src_node: pop1
+    src_vnf: vnf_lb
+  - dest_node: pop0
+    dest_vnf: vnf_lb
+    src_node: pop0
+    src_vnf: vnf_user
+  - dest_node: pop1
+    dest_vnf: vnf_lb
+    src_node: pop1
+    src_vnf: vnf_user
+  - dest_node: pop0
+    dest_vnf: vnf_web
+    src_node: pop0
+    src_vnf: vnf_lb
+  vnfs:
+  - image: null
+    name: vnf_web
+    node: pop0
+  - image: null
+    name: vnf_user
+    node: pop0
+  - image: null
+    name: vnf_lb
+    node: pop1
+  - image: null
+    name: vnf_user
+    node: pop1
+  - image: null
+    name: vnf_lb
+    node: pop0
+  - image: null
+    name: vnf_web
+    node: pop1
+time: 2019-11-26_16-36-51

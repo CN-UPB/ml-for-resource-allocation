@@ -1,0 +1,110 @@
+input:
+  algorithm: bjointsp
+  fixed: None
+  network: Abilene.graphml
+  num_edges: 14
+  num_flows: 1
+  num_nodes: 11
+  num_sources: 1
+  num_vnfs: 3
+  objective: 0
+  prev_embedding: None
+  seed: 6624
+  service: web2_fixed.yaml
+  sources: s0-f1.yaml
+metrics:
+  changed:
+  - name: vnf_lb
+    node: pop0
+  - name: vnf_user
+    node: pop0
+  - name: vnf_web
+    node: pop2
+  max_cpu_oversub: 0
+  max_dr_oversub: 200.0
+  max_endToEnd_delay: 21
+  max_mem_oversub: 0
+  num_changed: 3
+  num_instances: 3
+  obj_value: 20003251621.0
+  path_delays:
+  - dest: vnf_web
+    dest_node: pop2
+    path_delay: 1
+    src: vnf_lb
+    src_node: pop0
+  - dest: vnf_lb
+    dest_node: pop0
+    path_delay: 0
+    src: vnf_user
+    src_node: pop0
+  runtime: 0.06252384185791016
+  total_delay: 21
+  total_path_delay: 1
+  total_vnf_delay: 20
+  vnf_delays:
+  - vnf: vnf_lb
+    vnf_delay: 10
+  - vnf: vnf_user
+    vnf_delay: 0
+  - vnf: vnf_web
+    vnf_delay: 10
+placement:
+  alloc_node_res:
+  - cpu: 0.8
+    mem: 0
+    name: vnf_lb
+    node: pop0
+  - cpu: 0
+    mem: 0
+    name: vnf_user
+    node: pop0
+  - cpu: 0.8
+    mem: 0
+    name: vnf_web
+    node: pop2
+  cpu_oversub: []
+  dr_oversub:
+  - link:
+    - pop0
+    - pop2
+  flows:
+  - arc: vnf_lb.0->vnf_web.0
+    dest_vnf: vnf_web
+    dst_node: pop2
+    flow_id: f1
+    src_node: pop0
+    src_vnf: vnf_lb
+  - arc: vnf_user.0->vnf_lb.0
+    dest_vnf: vnf_lb
+    dst_node: pop0
+    flow_id: f1
+    src_node: pop0
+    src_vnf: vnf_user
+  links:
+  - arc: vnf_lb.0->vnf_web.0
+    edge_dst: pop2
+    edge_src: pop0
+    link_dst: pop2
+    link_src: pop0
+  mem_oversub: []
+  vlinks:
+  - dest_node: pop2
+    dest_vnf: vnf_web
+    src_node: pop0
+    src_vnf: vnf_lb
+  - dest_node: pop0
+    dest_vnf: vnf_lb
+    src_node: pop0
+    src_vnf: vnf_user
+  vnfs:
+  - image: null
+    name: vnf_lb
+    node: pop0
+  - image: null
+    name: vnf_user
+    node: pop0
+  - image: null
+    name: vnf_web
+    node: pop2
+time: 2019-11-26_16-27-12

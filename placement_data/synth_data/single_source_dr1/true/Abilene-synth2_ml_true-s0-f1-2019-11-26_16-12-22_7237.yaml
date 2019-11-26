@@ -1,0 +1,102 @@
+input:
+  algorithm: bjointsp
+  fixed: None
+  network: Abilene.graphml
+  num_edges: 14
+  num_flows: 1
+  num_nodes: 11
+  num_sources: 1
+  num_vnfs: 3
+  objective: 0
+  prev_embedding: None
+  seed: 7237
+  service: synth2_ml_true.yaml
+  sources: s0-f1.yaml
+metrics:
+  changed:
+  - name: vnf_web
+    node: pop0
+  - name: vnf_user
+    node: pop0
+  - name: vnf_lb
+    node: pop0
+  max_cpu_oversub: 0
+  max_dr_oversub: 0
+  max_endToEnd_delay: 20
+  max_mem_oversub: 0
+  num_changed: 3
+  num_instances: 3
+  obj_value: 3000040.0
+  path_delays:
+  - dest: vnf_web
+    dest_node: pop0
+    path_delay: 0
+    src: vnf_lb
+    src_node: pop0
+  - dest: vnf_lb
+    dest_node: pop0
+    path_delay: 0
+    src: vnf_user
+    src_node: pop0
+  runtime: 0.0825650691986084
+  total_delay: 20
+  total_path_delay: 0
+  total_vnf_delay: 20
+  vnf_delays:
+  - vnf: vnf_web
+    vnf_delay: 10
+  - vnf: vnf_user
+    vnf_delay: 0
+  - vnf: vnf_lb
+    vnf_delay: 10
+placement:
+  alloc_node_res:
+  - cpu: 0.01
+    mem: 0
+    name: vnf_web
+    node: pop0
+  - cpu: 0
+    mem: 0
+    name: vnf_user
+    node: pop0
+  - cpu: 0.01
+    mem: 0
+    name: vnf_lb
+    node: pop0
+  cpu_oversub: []
+  dr_oversub: []
+  flows:
+  - arc: vnf_lb.0->vnf_web.0
+    dest_vnf: vnf_web
+    dst_node: pop0
+    flow_id: f1
+    src_node: pop0
+    src_vnf: vnf_lb
+  - arc: vnf_user.0->vnf_lb.0
+    dest_vnf: vnf_lb
+    dst_node: pop0
+    flow_id: f1
+    src_node: pop0
+    src_vnf: vnf_user
+  links: []
+  mem_oversub: []
+  vlinks:
+  - dest_node: pop0
+    dest_vnf: vnf_web
+    src_node: pop0
+    src_vnf: vnf_lb
+  - dest_node: pop0
+    dest_vnf: vnf_lb
+    src_node: pop0
+    src_vnf: vnf_user
+  vnfs:
+  - image: null
+    name: vnf_web
+    node: pop0
+  - image: null
+    name: vnf_user
+    node: pop0
+  - image: null
+    name: vnf_lb
+    node: pop0
+time: 2019-11-26_16-12-22

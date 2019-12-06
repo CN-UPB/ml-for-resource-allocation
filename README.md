@@ -30,6 +30,7 @@ This starts the Jupyter server and should open a browser tab showing the Jupyter
 * `synth_data.ipynb`: Code for generating example VNF data, training and evaluating different ML models on this data.
 * `vnf_web.ipynb`: Code reading real-world VNF performance data, processing it, training multiple ML models, tuning hyperparamters of these models, and comparing their RMSE.
 * `placement_eval.ipynb`: Code parsing and plotting VNF placement results produced with the B-JointSP algorithm and different ML models.
+* `runtime.ipynb`: Code for measuring/parsing the runtimes of prediction and VNF placement with different models
 
 In addition, we adjusted and used the [B-JointSP VNF placement algorithm](https://github.com/CN-UPB/B-JointSP/tree/ml-resource-prediction) for applying our machine learning models to dynamic resource allocation in VNF placement.
 

@@ -16,6 +16,9 @@ Requires Python 3.6+.
 pip install -r requirements.txt
 ```
 
+If there are issues with the installation, check `requirements_freeze.txt`, which is a superset of the required dependencies but with specific version numbers.
+With this environment, I successfully ran the notebooks.
+
 ## Usage
 
 All code in this repository is Python code running in Jupyter notebooks. After installing the requirements above, you can run Jupyter Lab as follows:

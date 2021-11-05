@@ -84,7 +84,6 @@ nbconvert==5.6.1
 nbformat==5.0.7
 nbopen==0.6
 networkx==2.3
-notebook==6.0.3
 numpy==1.19.0
 oauthlib==3.1.0
 opencv-python==4.3.0.36
@@ -98,7 +97,6 @@ pathspec==0.6.0
 patsy==0.5.1
 pexpect==4.8.0
 pickleshare==0.7.5
-Pillow==7.2.0
 pluggy==0.13.0
 ply==3.11
 prometheus-client==0.8.0
@@ -152,10 +150,6 @@ statsmodels==0.10.2
 stickytape==0.1.14
 structlog==20.1.0
 tabulate==0.8.6
-tensorboard==1.15.0
-tensorboard-plugin-wit==1.7.0
-tensorflow==1.15.0
-tensorflow-estimator==1.15.1
 termcolor==1.1.0
 terminado==0.8.3
 testpath==0.4.4

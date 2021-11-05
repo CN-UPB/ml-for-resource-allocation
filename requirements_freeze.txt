@@ -63,7 +63,7 @@ jupyter==1.0.0
 jupyter-client==6.1.6
 jupyter-console==5.2.0
 jupyter-core==4.6.3
-jupyterlab==1.0.1
+jupyterlab==1.2.21
 jupyterlab-server==1.0.0
 kaggle==1.4.7.1
 -e git+git@github.com:stefanbschneider/kaggle-environments.git@62246ec0a82c269799bd8dac63dd4a891ebdcfbd#egg=kaggle_environments

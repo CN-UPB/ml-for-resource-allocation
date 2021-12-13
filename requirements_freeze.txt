@@ -72,7 +72,7 @@ Keras-Applications==1.0.8
 Keras-Preprocessing==1.1.2
 kiwisolver==1.0.1
 lightgbm==2.2.0
-lxml==4.5.0
+lxml==4.6.5
 Markdown==3.2.2
 MarkupSafe==1.1.1
 matplotlib==3.0.2

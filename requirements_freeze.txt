@@ -55,7 +55,7 @@ ipywidgets==6.0.0
 jedi==0.17.2
 Jinja2==2.11.2
 jmespath==0.9.5
-joblib==0.14.0
+joblib==1.2.0
 json5==0.8.5
 jsonpath-ng==1.4.3
 jsonschema==3.2.0

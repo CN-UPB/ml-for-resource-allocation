@@ -1,0 +1,16 @@
+# Optional dependencies -- not needed for the core notebooks.
+#
+# Install with:
+#   pip install -r requirements.txt -r requirements-optional.txt
+#
+# tabpfn adds the pretrained TabPFN transformer as an extra model in the
+# vnf_web.ipynb regression comparison. It pulls in PyTorch, which is why it is
+# kept out of the core requirements. If it is not installed, vnf_web.ipynb still
+# runs and simply omits TabPFN from the comparison.
+#
+# On first run the notebook downloads the pretrained TabPFN v2 regressor weights
+# (~42 MB) from the public GCS mirror into ml_models/tabpfn/ (gitignored), so no
+# Hugging Face login is needed.
+#
+# Verified with tabpfn 8.1.0 (torch 2.13.0) on Python 3.11.
+tabpfn

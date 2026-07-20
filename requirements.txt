@@ -7,13 +7,10 @@ pandas
 seaborn
 jupyterlab
 matplotlib
-tabpfn
 
 # Notebooks were re-run and verified with the following versions on Python 3.11:
 #   scikit-learn 1.9.0, numpy 2.4.6, pandas 3.0.3,
-#   matplotlib 3.11.1, seaborn 0.13.2, joblib 1.5.3, jupyterlab 4.6.1,
-#   tabpfn 8.1.0 (torch 2.13.0)
+#   matplotlib 3.11.1, seaborn 0.13.2, joblib 1.5.3, jupyterlab 4.6.1
 #
-# vnf_web.ipynb downloads the pretrained TabPFN v2 regressor weights on first
-# run from the public GCS mirror into ml_models/tabpfn/ (no Hugging Face login
-# needed).
+# Optional extras (not required for the core notebooks) live in
+# requirements-optional.txt -- currently the TabPFN model used in vnf_web.ipynb.

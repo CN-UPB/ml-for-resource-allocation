@@ -7,6 +7,8 @@ loaded in the notebook and compared against the other regressors.
 For each VNF this saves
   ml_models/<vnf>/autogluon/            final predictor trained on all data (full stack/ensemble)
   ml_models/<vnf>/autogluon_cv.json     5-fold CV RMSE (same folds as sklearn's cross_val_score)
+With --raw, AutoGluon gets the unscaled, unimputed throughput and does all preprocessing itself;
+the outputs are then autogluon_raw/ and autogluon_raw_cv.json.
 
 Usage: python train_autogluon.py [--time-limit SECONDS] [--preset best_quality] [--vnfs nginx squid]
 """
@@ -67,34 +69,40 @@ def main():
     ap.add_argument('--time-limit', type=int, default=300, help='seconds per fit (final + each CV fold)')
     ap.add_argument('--preset', default='best_quality')
     ap.add_argument('--num-cpus', type=int, default=os.cpu_count())
+    ap.add_argument('--raw', action='store_true',
+                    help='no MinMax scaling / imputation: AutoGluon preprocesses the raw throughput itself')
     ap.add_argument('--cv-folds', type=int, default=5, help='0 to skip the CV evaluation')
     args = ap.parse_args()
 
     for vnf in args.vnfs:
         data = load_vnf(vnf)
-        X = data[[FEATURE]].fillna(data[FEATURE].median())
         y = data[TARGET]
         os.makedirs(f'ml_models/{vnf}', exist_ok=True)
+        tag = 'autogluon_raw' if args.raw else 'autogluon'
 
-        # the notebook scales the feature with MinMaxScaler before every model; do the same
-        scaler = joblib.load(f'ml_models/{vnf}/scaler.joblib') if os.path.exists(f'ml_models/{vnf}/scaler.joblib') \
-            else MinMaxScaler().fit(X)
-        Xs = pd.DataFrame(scaler.transform(X), columns=[FEATURE])
+        if args.raw:
+            Xs = data[[FEATURE]].reset_index(drop=True)  # untouched: AutoGluon handles missing values etc.
+        else:
+            # the notebook scales the feature with MinMaxScaler before every model; do the same
+            X = data[[FEATURE]].fillna(data[FEATURE].median())
+            scaler = joblib.load(f'ml_models/{vnf}/scaler.joblib') if os.path.exists(f'ml_models/{vnf}/scaler.joblib') \
+                else MinMaxScaler().fit(X)
+            Xs = pd.DataFrame(scaler.transform(X), columns=[FEATURE])
 
         if args.cv_folds:
             rmse = []
             for k, (tr, va) in enumerate(KFold(args.cv_folds).split(Xs)):  # same folds as cross_val_score
                 train = pd.concat([Xs.iloc[tr], y.iloc[tr]], axis=1)
-                p = fit_predictor(train, f'/tmp/ag_cv_{vnf}_{k}', args)
+                p = fit_predictor(train, f'/tmp/{tag}_cv_{vnf}_{k}', args)
                 pred = p.predict(Xs.iloc[va])
                 rmse.append(float(np.sqrt(np.mean((pred.values - y.iloc[va].values) ** 2))))
                 print(f'{vnf} fold {k}: RMSE {rmse[-1]:.4f}')
-                shutil.rmtree(f'/tmp/ag_cv_{vnf}_{k}', ignore_errors=True)
-            with open(f'ml_models/{vnf}/autogluon_cv.json', 'w') as f:
+                shutil.rmtree(f'/tmp/{tag}_cv_{vnf}_{k}', ignore_errors=True)
+            with open(f'ml_models/{vnf}/{tag}_cv.json', 'w') as f:
                 json.dump({'rmse': rmse, 'preset': args.preset, 'time_limit': args.time_limit}, f)
             print(f'{vnf} CV RMSE: {np.mean(rmse):.4f} (+/-{np.std(rmse):.4f})')
 
-        predictor = fit_predictor(pd.concat([Xs, y], axis=1), f'ml_models/{vnf}/autogluon', args)
+        predictor = fit_predictor(pd.concat([Xs, y], axis=1), f'ml_models/{vnf}/{tag}', args)
         print(predictor.leaderboard(silent=True).head(10))
         # keep only what is needed for inference, drops training artifacts and shrinks the folder
         predictor.save_space()

@@ -14,3 +14,8 @@
 #
 # Verified with tabpfn 8.1.0 (torch 2.13.0) on Python 3.11.
 tabpfn
+
+# autogluon.tabular is only needed to train (train_autogluon.py) and to load the saved
+# AutoGluon stack in vnf_web.ipynb. It is a large install (PyTorch, LightGBM, CatBoost, ...);
+# without it the notebook simply omits AutoGluon. Verified with autogluon.tabular 1.6.3, Python 3.13.
+autogluon.tabular[all]

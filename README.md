@@ -19,13 +19,14 @@ pip install -r requirements.txt
 If there are issues with the installation, check `requirements_freeze.txt`, which is a superset of the required dependencies but with specific version numbers.
 With this environment, I successfully ran the notebooks.
 
-The `vnf_web.ipynb` notebook can optionally also compare against [TabPFN](https://github.com/PriorLabs/TabPFN), a pretrained transformer for tabular data. TabPFN is kept as an optional dependency because it pulls in PyTorch. To include it, additionally install:
+The `vnf_web.ipynb` notebook can optionally also compare against [TabPFN](https://github.com/PriorLabs/TabPFN) 3.5, a pretrained transformer for tabular data, queried through the [Prior Labs API client](https://github.com/PriorLabs/tabpfn-client). To include it, additionally install the client and set your API key (from https://platform.priorlabs.ai/account/api-keys):
 
 ```
 pip install -r requirements-optional.txt
+export TABPFN_API_KEY=<your key>
 ```
 
-If it is not installed, the notebook still runs and simply omits TabPFN from the comparison. On first run it downloads the pretrained TabPFN weights (~42 MB) into `ml_models/tabpfn/` (no Hugging Face login needed).
+If the client or key is missing, the notebook still runs and simply omits TabPFN from the comparison. Note that the training data is sent to the Prior Labs API.
 
 ## Usage
 

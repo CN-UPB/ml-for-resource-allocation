@@ -19,7 +19,7 @@ pip install -r requirements.txt
 If there are issues with the installation, check `requirements_freeze.txt`, which is a superset of the required dependencies but with specific version numbers.
 With this environment, I successfully ran the notebooks.
 
-The `vnf_web.ipynb` notebook can optionally also compare against [TabPFN](https://github.com/PriorLabs/TabPFN) 3.5, a pretrained transformer for tabular data, queried through the [Prior Labs API client](https://github.com/PriorLabs/tabpfn-client). To include it, additionally install the client and set your API key (from https://platform.priorlabs.ai/account/api-keys):
+The `vnf_web.ipynb` notebook can optionally also compare against [TabPFN](https://github.com/PriorLabs/TabPFN) 3.5, a pretrained transformer for tabular data, queried through the [Prior Labs API client](https://github.com/PriorLabs/tabpfn-client). To include it (requires Python 3.10+, unlike the rest of the repo), additionally install the pinned client and set your API key (from https://platform.priorlabs.ai/account/api-keys):
 
 ```
 pip install -r requirements-optional.txt

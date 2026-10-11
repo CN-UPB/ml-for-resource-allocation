@@ -6,6 +6,7 @@
 # tabpfn-client adds TabPFN 3.5 (queried via the Prior Labs API) as an extra model
 # in the vnf_web.ipynb regression comparison. It requires an API key in the
 # environment variable TABPFN_API_KEY (https://platform.priorlabs.ai/account/api-keys).
+# Pinned for reproducibility. Requires Python >= 3.10.
 # If the package or key is missing, vnf_web.ipynb still runs and simply omits
 # TabPFN from the comparison.
-tabpfn-client
+tabpfn-client==0.6.1

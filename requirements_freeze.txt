@@ -67,7 +67,7 @@ jupyterlab==1.0.1
 jupyterlab-server==1.0.0
 kaggle==1.4.7.1
 -e git+git@github.com:stefanbschneider/kaggle-environments.git@62246ec0a82c269799bd8dac63dd4a891ebdcfbd#egg=kaggle_environments
-Keras==2.4.3
+Keras==3.15.0
 Keras-Applications==1.0.8
 Keras-Preprocessing==1.1.2
 kiwisolver==1.0.1

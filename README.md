@@ -28,6 +28,8 @@ export TABPFN_API_KEY=<your key>
 
 If the client or key is missing, the notebook still runs and simply omits TabPFN from the comparison. Note that the training data is sent to the Prior Labs API.
 
+Likewise, [AutoGluon](https://auto.gluon.ai) (an AutoML framework that trains and stacks many models) is compared as an optional extra. `requirements-optional.txt` installs it too (large: it pulls in PyTorch). The trained models are stored in `ml_models/<vnf>/AutoGluon.zip`; to retrain them, run `python train_autogluon.py`. If AutoGluon is not installed, the notebook simply omits it.
+
 ## Usage
 
 All code in this repository is Python code running in Jupyter notebooks. After installing the requirements above, you can run Jupyter Lab as follows:

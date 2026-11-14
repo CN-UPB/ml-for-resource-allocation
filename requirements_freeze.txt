@@ -171,4 +171,4 @@ widgetsnbextension==2.0.1
 win-unicode-console==0.5
 wrapt==1.12.1
 yapf==0.24.0
-zipp==0.6.0
+zipp==3.19.1

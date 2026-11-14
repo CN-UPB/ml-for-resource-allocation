@@ -116,7 +116,7 @@ PyOpenGL==3.1.0
 pyparsing==2.4.7
 pypiwin32==223
 pyrsistent==0.16.0
-pytest==5.2.0
+pytest==9.0.3
 python-dateutil==2.8.1
 python-http-client==3.2.7
 python-slugify==1.2.6

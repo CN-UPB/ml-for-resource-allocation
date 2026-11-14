@@ -53,7 +53,7 @@ ipython==8.10.0
 ipython-genutils==0.2.0
 ipywidgets==6.0.0
 jedi==0.17.2
-Jinja2==2.11.2
+Jinja2==3.1.6
 jmespath==0.9.5
 joblib==1.5.3
 json5==0.8.5

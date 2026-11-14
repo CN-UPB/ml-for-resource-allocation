@@ -86,7 +86,7 @@ nbopen==0.6
 networkx==2.3
 numpy==2.4.6
 oauthlib==4.0.1
-opencv-python==4.3.0.36
+opencv-python==4.8.1.78
 opt-einsum==3.3.0
 ortools==7.4.7247
 packaging==20.4
